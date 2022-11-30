@@ -5,14 +5,14 @@ function fecthData(urlApi, callback) {
     let xhttp = new XMLHttpRequest();
 
     xhttp.open('GET', urlApi, true);
-    xhttp.onreadystatechnge = function (event) {
+    xhttp.onreadystatechange = function (event) {
         //Por que 4?, hay 4 tipos de elementos en el readyState
         //0 , no se ah inicializado
         //1, loading
         //2, ya se ejecuto
         //3, interactuando (descargando)
         //4, Completado
-        if(xhttp.reayState === 4) {
+        if(xhttp.readyState === 4) {
             if(xhttp.status === 200){
                 callback(null, JSON.parse(xhttp.responseText));
             } else {
